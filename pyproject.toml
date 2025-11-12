@@ -11,6 +11,9 @@ dependencies = [
     "rich>=14.2.0",
     "typer>=0.20.0",
 ]
+authors = [
+    { name = "rockleona", email = "34214497+rockleona@users.noreply.github.com" }
+]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
@@ -19,3 +22,13 @@ version_scheme = "pep440"
 version_provider = "uv"
 update_changelog_on_bump = true
 major_version_zero = true
+
+[project.scripts]
+foo = "pycli_template.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pycli_template"]

@@ -212,7 +212,7 @@ wheels = [
 [[package]]
 name = "pycli-template"
 version = "0.3.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "mkdocs" },
     { name = "mkdocs-simple-blog" },
