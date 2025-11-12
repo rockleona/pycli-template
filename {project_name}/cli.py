@@ -1,13 +1,23 @@
-import click
+import time
+import typer
+
+from rich.progress import track
 
 
-@click.group()
-def cli():
-    pass
+cli = typer.Typer()
 
 
 @cli.command()
-@click.option("--name", default="World", help="Name to greet")
-def greet(name):
+def greet(name: str = "World"):
     """Greet the user."""
-    click.echo(f"Hello, {name}!")
+    typer.echo(f"Hello, {name}!")
+
+
+@cli.command()
+def init():
+    """Initialize the project."""
+    progess = 0
+    for _ in track(range(100), description="Initializing..."):
+        time.sleep(0.05)
+        progess += 1
+    typer.echo("Project initialized successfully!")
